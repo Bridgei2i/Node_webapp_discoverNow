@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title About 
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    script(src = 'http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false')
+    script(type='text/javascript', src='/javascripts/jquery.js')
+    script(type='text/javascript', src='/javascripts/bootstrap.min.js')
+    script(type='text/javascript', src='/javascripts/jquery.slimscroll.min.js')
+    link(rel='stylesheet', href='/stylesheets/custom-styles.css')
+ block content 
+ body
+    //
+       Navigation Bar 
+    .bodykinda
+      .navbar.navbar-default
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-responsive-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#')
+            | Discover Now
+        .navbar-collapse.collapse.navbar-responsive-collapse
+          ul.nav.navbar-nav.navbar-right
+            li.active
+              a(href='/homePage') Home
+    
+
+     .container
+      // Introduction Row
+      .row
+        .col-lg-12
+          h1.page-header
+            | About 
+          p
+            | A one stop destination where you can find Restaurants to Hospitals, Schools to ATMs, Stores to Shopping Malls, and many more. This web app not only provides basic search results, but also other information such as contact information, website, place ratings,location details, distance etc.
+          p
+            | keshakishore@gmail.com

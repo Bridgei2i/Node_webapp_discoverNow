@@ -1,0 +1,38 @@
+{
+  "name": "Discover_Now",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web Application using node.js and google places node package",
+  "keywords": [
+    "discoverNow",
+    "Node.js",
+    "application",
+    "places"
+  ],
+  "author": {
+    "name": "kishorekumar.N",
+    "email": "keshakishore@gmail.com",
+    "url": "http://discovernow-discoverplaces.rhcloud.com/"
+  },
+  "homepage": "http://discovernow-discoverplaces.rhcloud.com/",
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  },
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "jade": "~1.11.0",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0",
+	"googleplaces" : "~0.6.0",
+    "jquery-slimscroll" : "~1.3.6",
+    "geocoder" : "~0.2.2",
+    "google-locations" : "~0.2.0"
+  }
+}

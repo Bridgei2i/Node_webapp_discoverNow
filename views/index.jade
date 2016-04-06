@@ -1,0 +1,54 @@
+extends layout
+
+block content
+  script(type='text/javascript' src='/javascripts/home-script.js')
+  body.home-page-style(onload='initialize()')
+    .wrap-body
+      header
+        .nav-bar
+          .wrap-nav
+            .row
+              .col-1-3
+              .col-2-3
+                .wrap-col.f-right
+                  #menu
+                    nav
+                      ul
+                        li.active.nav-option
+                          a(href='#') Home
+                        li.nav-option
+                          a(href='/aboutPage') About 
+                        
+        .wrap-header
+          h1 Discover Now
+          span See the world differently
+          center
+            form(action='/getNearByLocations', method='post', name='searchForm')
+            
+              .input-group
+                   .search-form 
+                     .row
+                       .col-md-7(style='padding-right:0')
+                          #locationField
+                          input#autocomplete.form-control(type='text', aria-label='...',placeholder='search here',name="searchString",onkeyup='getAutocompleteResult()',autocomplete='on')
+                        .col-md-5(style='padding-left:0')
+                          .form-group
+                            select(name="placeType",class="form-control", id="sel1")
+                                 each value in ["hotel","hospital","school","airport","amusement_park","atm","bank","bus_station","cafe","doctor","food","gym","library","lodging","theater","pharmacy","park","police","post_office","train_station"]
+                                  option(value = value) #{value}
+                    
+                      input.btn.btn-default(type='button', name='Submit', value='Search',onClick="getSearchResults();")
+
+          #top-destination(style='margin-left:20%')
+            nav
+              ul
+                li
+                  p Popular Searches :
+                li
+                  a(href="#",onClick="setPlaceType('hotel')") Hotels
+                li
+                  a(href="#",onClick="setPlaceType('hospital')") Hospitals
+                li
+                  a(href="#",onClick="setPlaceType('airport')") Airport
+                li
+                  a(href="#",onClick="setPlaceType('atm')") ATM

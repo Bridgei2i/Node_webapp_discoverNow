@@ -1,0 +1,74 @@
+extends layout
+   
+block content
+  link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+  script(type='text/javascript', src='/javascripts/google-places-result.js')
+  script.
+    var initialSearchParameters=!{searchParameters};
+    var latitude= #{latitude};
+    var longitude = #{longitude};
+    var jsonData = !{data};
+    var isFromErrorPage = #{isFromErrorPage};
+
+  body(onload = 'checkInitializationStatus()')
+    //
+       Navigation Bar 
+    .bodykinda
+      .navbar.navbar-default
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-responsive-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#')
+            | Discover Now
+        .navbar-collapse.collapse.navbar-responsive-collapse
+          ul.nav.navbar-nav.navbar-right
+            li.active
+              a(href='/homePage') Home
+            li
+              a(href='/aboutPage') About
+    #map-canvas.map-grid
+    #place-details.details-pane
+    form(action='/getDirection', method='post', name='directionForm')
+      #table-container.table-container
+       .input-group
+         .row
+           .col-md-7(style='padding-right:0')
+              input#autocomplete.search-box(type='text', aria-label='...',placeholder='search here',name="searchString",onkeyup='getAutocompleteResult(event)')
+            .col-md-5(style='padding-left:0')
+              .form-group
+                select#placeType(name="placeType",class="place-type",onChange='getNearbyLocations();')
+                     each value in ["hotel","hospital","school","airport","amusement_park","atm","bank","bus_station","cafe","doctor","food","gym","library","lodging","theater","pharmacy","park","police","post_office","train_station"]
+                      option(value = value) #{value}
+
+      #myModal.modal.modal-wide.fade(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+        .modal-dialog(style="margin-top:0;width:100%")
+          .modal-content
+            .modal-header
+              button.close(type="button", data-dismiss="modal", aria-hidden="true") &times;
+              h4#modalTitle.modal-title 
+            .modal-body
+                hr
+                .container(style="width:100%")
+                  .row
+                   .col-md-7
+                    #carousel_fade.carousel.slide.carousel-fade
+                      #modalBody.carousel-inner
+                        .item.active
+                          img(src='http://placehold.it/600x400&text=Fade+effect')
+                        .item
+                          img(src='http://placehold.it/600x400&text=Fade+effect2')
+                   .col-md-2
+                    #imageStack(style='overflow-y:auto;overflow-x:hidden')
+                     p hai
+                   .col-md-3
+                    #reviewsStack(style='overflow-y:auto;overflow-x:hidden;color:#ffffff')
+
+
+            .modal-footer
+              button.btn.btn-default(type="button", data-dismiss="modal") Close
+      
+      input#startingPosition(type='hidden', name='startingPosition')
+      input#destination(type='hidden', name='destination')
+

@@ -1,0 +1,44 @@
+extends layout
+
+block content
+  style.
+      .adp-text{
+        width : 88%
+      }
+  link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+  script(type='text/javascript', src='/javascripts/direction-search.js')
+  script.
+     var jsonData = !{data};
+  body(onload='initialize()')
+    //
+       Navigation Bar 
+    .bodykinda
+      .navbar.navbar-default
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-responsive-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#')
+            | Discover Now
+        .navbar-collapse.collapse.navbar-responsive-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='' onclick='goBack()') Back
+            li
+              a(href='/homePage') Home
+            li
+              a(href='about') About
+    #map-canvas.map-grid
+    #place-details.details-pane(style='background-color:rgb(234, 231, 223);padding-top:0px;margin-top:0px')
+    form(action='/getNearByLocations', method='post', name='directionResultForm')
+      #table-container.table-container
+       .input-group#floating-panel.floating-panel
+         .row
+           .col-md-7(style='padding-right:1px;padding-left:0px')
+              input#autocomplete.form-control.search-box(type='text', aria-label='...',placeholder='search here',name="searchString",disabled="disabled" )
+            .col-md-5(style='padding-left:0')
+              .form-group
+                 input#end.form-control.search-box(type='text', aria-label='...',placeholder='search here',disabled="disabled" )
+                 input#placeType.form-control.search-box(type='hidden', aria-label='...',placeholder='search here',name="placeType")
+      #info-panel.info-panel
