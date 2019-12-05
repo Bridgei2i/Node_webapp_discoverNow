@@ -36,19 +36,8 @@
          	    http://localhost:3000/
 
 # Supported searches
-
-	Hotel,hospital,school,airport,atm,bank,bus_station,cafe,doctor and much more.
+  Hotel,hospital,school,airport,atm,bank,bus_station,cafe,doctor and much more.
 	
-#Functionality Description
-    Functionality List                       Description                           Usage Type
-     Autocomplete                  Uses google location Autocomplete              Node Package 
-	 Location Service              Uses Reverse geocoding service                 Node Package
-	 Places Service                Uses  Google Places search API                 Node Package
-	 Place Details                 Uses Google Place Details API                  Node Package and javascript API 
-	 Direction service             Uses Google Direction search                   Javascript API
-	 Initializing map              Uses Google maps API                           Javascipt API
-	 and creating Markers
-	 
 ###Contribution
 
   Fork it, hack it and send me a pull request
